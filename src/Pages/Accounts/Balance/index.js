@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedAccount } from "../../../Store/Slices/layoutSlice";
 import {
   getCheckingAccountIncomingPayments,
   getCheckingAccountOutgoingPayments,
 } from "../../../Store/Slices/checkingAccountSlice";
+import { formatNumber } from "../../../Utils";
 import Card from "../../../Components/Card";
 import Table from "../../../Components/Table.js";
+import FAB from "../../../Components/FAB";
+import PaymentModal from "../../../Components/PaymentModal";
 
 const Balance = () => {
+  const [showModal, setShowModal] = useState(false);
+
   const selectedAccount = useSelector((state) => state.layout.selectedAccount);
 
   const incomingPayments = useSelector(
@@ -58,6 +63,9 @@ const Balance = () => {
     {
       Header: "Iznos",
       accessor: "amount",
+      Cell: (props) => {
+        return formatNumber(props.value);
+      },
     },
   ];
 
@@ -67,12 +75,15 @@ const Balance = () => {
       accessor: "date",
     },
     {
-      Header: "Primalac",
+      Header: "Primatelj",
       accessor: "payee",
     },
     {
       Header: "Iznos",
       accessor: "amount",
+      Cell: (props) => {
+        return formatNumber(props.value);
+      },
     },
   ];
 
@@ -108,19 +119,10 @@ const Balance = () => {
           <Table data={outgoingPayments} columns={outgoingPaymentsColumns} />
         </div>
       )}
+      <FAB onClick={() => setShowModal(true)} />
+      <PaymentModal show={showModal} />
     </div>
   );
 };
-
-const columns = [
-  { Header: "Name", accessor: "name" },
-  { Header: "Age", accessor: "age" },
-];
-const data = [
-  { name: "Joe", age: 30 },
-  { name: "Jill", age: 25 },
-  { name: "John", age: 40 },
-  { name: "Jane", age: 35 },
-];
 
 export default Balance;

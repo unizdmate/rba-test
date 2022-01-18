@@ -1,4 +1,5 @@
 import React from "react";
+import { formatNumber } from "../../Utils";
 import "./CardStyles.css";
 
 const Card = ({
@@ -9,10 +10,6 @@ const Card = ({
   onClick,
   active,
 }) => {
-  const formatNumber = (number) => {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  };
-
   return (
     <div
       className={`card-container ${active && "card-container-active"}`}
