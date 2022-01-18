@@ -1,12 +1,9 @@
 import React from "react";
 import Layout from "./Components/Layout";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return (
-    <Layout>
-      <h3>RBA</h3>
-    </Layout>
-  );
+  return <Layout />;
 }
 
 export default App;

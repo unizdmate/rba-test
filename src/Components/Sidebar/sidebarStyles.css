@@ -1,0 +1,33 @@
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 5px;
+  border-right: 1px solid #dee2e6;
+}
+
+.sidebar-item {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #5e5e5e;
+  display: block;
+  cursor: pointer;
+}
+
+.sidebar-logo {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  color: #000000;
+  display: block;
+  pointer-events: none;
+}
+
+.sidebar-item:hover {
+  color: #000000;
+}
