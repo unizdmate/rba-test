@@ -1,0 +1,30 @@
+.card-container {
+  width: 300px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #dee2e6;
+  border-radius: 16px;
+  padding: 16px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.card-container-active {
+  background-color: #fff531;
+}
+
+.card-item p {
+  font-size: 14px;
+}
+
+.card-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-item h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
