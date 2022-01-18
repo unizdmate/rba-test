@@ -23,6 +23,8 @@ export const getCheckingAccountOutgoingPayments = createAsyncThunk(
 const initialState = {
   incomingPayments: [],
   outgoingPayments: [],
+  accountBalance: 7154.5,
+  remainingBalance: 6754.45,
   status: null,
 };
 

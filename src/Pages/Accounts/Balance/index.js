@@ -24,6 +24,14 @@ const Balance = () => {
     (state) => state.checkingAccount.outgoingPayments
   );
 
+  const accountBalance = useSelector(
+    (state) => state.checkingAccount.accountBalance
+  );
+
+  const remainingBalance = useSelector(
+    (state) => state.checkingAccount.remainingBalance
+  );
+
   const dispatch = useDispatch();
 
   const handleSelectedAccount = (account) => {
@@ -87,14 +95,22 @@ const Balance = () => {
     },
   ];
 
+  const openPaymentModal = () => {
+    setShowModal(true);
+  };
+
+  const closePaymentModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div style={{ display: "flex" }}>
         <Card
           accountType="Moj tekući račun"
           accountNumber="HR2398383000987623"
-          accountBalance={5235.25}
-          remainingBalance={4978.75}
+          accountBalance={accountBalance}
+          remainingBalance={remainingBalance}
           onClick={() => handleSelectedAccount("checkingAccount")}
           active={
             useSelector((state) => state.layout.selectedAccount) ===
@@ -119,8 +135,8 @@ const Balance = () => {
           <Table data={outgoingPayments} columns={outgoingPaymentsColumns} />
         </div>
       )}
-      <FAB onClick={() => setShowModal(true)} />
-      <PaymentModal show={showModal} />
+      <FAB onClick={() => openPaymentModal()} />
+      <PaymentModal show={showModal} onHide={() => closePaymentModal()} />
     </div>
   );
 };
