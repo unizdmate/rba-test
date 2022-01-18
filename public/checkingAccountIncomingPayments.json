@@ -1,0 +1,9 @@
+{
+  "data": [
+    { "date": "2017-02-03", "payer": "Marija Marić", "amount": 1200.25 },
+    { "date": "2017-03-04", "payer": "Pero Perić", "amount": 825.55 },
+    { "date": "2018-04-05", "payer": "Ivo Ivić", "amount": 1012.66 },
+    { "date": "2019-09-06", "payer": "Jure Jurić", "amount": 460.11 },
+    { "date": "2020-03-03", "payer": "Stipe Stipanović", "amount": 510.55 }
+  ]
+}

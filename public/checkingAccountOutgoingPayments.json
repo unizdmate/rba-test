@@ -1,0 +1,9 @@
+{
+  "data": [
+    { "date": "2018-07-03", "payee": "Marija Marić", "amount": 1220.25 },
+    { "date": "2018-07-04", "payee": "Pero Perić", "amount": 425.55 },
+    { "date": "2019-08-05", "payee": "Ivo Ivić", "amount": 912.66 },
+    { "date": "2020-08-06", "payee": "Jure Jurić", "amount": 480.11 },
+    { "date": "2021-09-03", "payee": "Stipe Stipanović", "amount": 590.55 }
+  ]
+}
