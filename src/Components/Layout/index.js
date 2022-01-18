@@ -18,6 +18,7 @@ const Layout = ({ children }) => {
     <div className="layout-container">
       <Header />
       <Sidebar />
+
       {children}
     </div>
   );

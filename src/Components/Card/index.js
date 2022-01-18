@@ -12,6 +12,7 @@ const Card = ({
   const formatNumber = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
+
   return (
     <div
       className={`card-container ${active && "card-container-active"}`}
