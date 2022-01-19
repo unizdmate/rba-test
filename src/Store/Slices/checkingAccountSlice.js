@@ -41,6 +41,15 @@ export const checkingAccountSlice = createSlice({
           state.remainingBalance + Number(action.payload.amount),
       };
     },
+    handleOutgoingPayment: (state, action) => {
+      return {
+        ...state,
+        outgoingPayments: [...state.outgoingPayments, action.payload],
+        accountBalance: state.accountBalance - Number(action.payload.amount),
+        remainingBalance:
+          state.remainingBalance - Number(action.payload.amount),
+      };
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -92,5 +101,5 @@ export const checkingAccountSlice = createSlice({
 });
 
 const { actions, reducer } = checkingAccountSlice;
-export const { handleIncomingPayment } = actions;
+export const { handleIncomingPayment, handleOutgoingPayment } = actions;
 export { reducer as checkingAccountReducer };
