@@ -1,13 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {
-  fetchCheckingAccountIncomingPayments,
-  fetchCheckingAccountOutgoingPayments,
-} from "../../Api/checkingAccountApi";
 
 export const getCheckingAccountIncomingPayments = createAsyncThunk(
   "checkingAccount/getIncomingPayments",
   async () => {
-    const response = await fetchCheckingAccountIncomingPayments();
+    const response = await initialState.incomingPayments.fetch();
     return response;
   }
 );
@@ -15,14 +11,26 @@ export const getCheckingAccountIncomingPayments = createAsyncThunk(
 export const getCheckingAccountOutgoingPayments = createAsyncThunk(
   "checkingAccount/getOutgoingPayments",
   async () => {
-    const response = await fetchCheckingAccountOutgoingPayments();
+    const response = await initialState.outgoingPayments.fetch();
     return response;
   }
 );
 
 const initialState = {
-  incomingPayments: [],
-  outgoingPayments: [],
+  incomingPayments: [
+    { date: "2017-02-03", payer: "Marija Marić", amount: 1200.25 },
+    { date: "2017-03-04", payer: "Pero Perić", amount: 825.55 },
+    { date: "2018-04-05", payer: "Ivo Ivić", amount: 1012.66 },
+    { date: "2019-09-06", payer: "Jure Jurić", amount: 460.11 },
+    { date: "2020-03-03", payer: "Stipe Stipanović", amount: 510.55 },
+  ],
+  outgoingPayments: [
+    { date: "2018-07-03", payee: "Lovre Lovrić", amount: 220.25 },
+    { date: "2018-07-04", payee: "Vice Vicković", amount: 425.55 },
+    { date: "2019-08-05", payee: "Šime Šimić", amount: 912.66 },
+    { date: "2020-08-06", payee: "Martin Martinović", amount: 480.11 },
+    { date: "2021-09-03", payee: "Ivana Ivandić", amount: 590.55 },
+  ],
   accountBalance: 7154.5,
   remainingBalance: 6754.45,
   status: null,
