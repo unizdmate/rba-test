@@ -4,6 +4,7 @@ import { Tab, Tabs } from "react-bootstrap";
 import "./headerStyles.css";
 import { setSelectedAccount } from "../../Store/Slices/layoutSlice";
 import Balance from "../../Pages/Accounts/Balance";
+import Transactions from "../../Pages/Accounts/Transactions";
 
 const Header = () => {
   const [key, setKey] = useState("balance");
@@ -19,7 +20,9 @@ const Header = () => {
         <Tab eventKey="balance" title="Stanja">
           <Balance />
         </Tab>
-        <Tab eventKey="transactions" title="Prometi"></Tab>
+        <Tab eventKey="transactions" title="Prometi">
+          <Transactions />
+        </Tab>
       </Tabs>
     </div>
   );

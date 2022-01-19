@@ -1,6 +1,6 @@
 import React from "react";
 import * as Bootstrap from "react-bootstrap";
-import { usePagination, useTable } from "react-table";
+import { useTable, useSortBy, usePagination } from "react-table";
 import "./tableStyles.css";
 
 export const Table = ({ columns, data }) => {
@@ -25,6 +25,7 @@ export const Table = ({ columns, data }) => {
       data,
       initialState: { pageIndex: 0, pageSize: 3 },
     },
+    useSortBy,
     usePagination
   );
 
@@ -35,7 +36,16 @@ export const Table = ({ columns, data }) => {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render("Header")}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? " 🔽"
+                        : " 🔼"
+                      : ""}
+                  </span>
+                </th>
               ))}
             </tr>
           ))}
