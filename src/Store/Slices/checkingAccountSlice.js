@@ -31,7 +31,17 @@ const initialState = {
 export const checkingAccountSlice = createSlice({
   name: "checkingAccount",
   initialState,
-  reducers: {},
+  reducers: {
+    handleIncomingPayment: (state, action) => {
+      return {
+        ...state,
+        incomingPayments: [...state.incomingPayments, action.payload],
+        accountBalance: state.accountBalance + Number(action.payload.amount),
+        remainingBalance:
+          state.remainingBalance + Number(action.payload.amount),
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCheckingAccountIncomingPayments.pending, (state, action) => {
@@ -82,5 +92,5 @@ export const checkingAccountSlice = createSlice({
 });
 
 const { actions, reducer } = checkingAccountSlice;
-export const {} = actions;
+export const { handleIncomingPayment } = actions;
 export { reducer as checkingAccountReducer };

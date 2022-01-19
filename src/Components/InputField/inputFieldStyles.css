@@ -1,0 +1,9 @@
+.text-field-error {
+  font-size: 0.75rem;
+  color: red;
+  margin-top: 5px;
+}
+
+.required {
+  color: red;
+}

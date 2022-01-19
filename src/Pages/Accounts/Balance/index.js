@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { format } from "date-fns";
 import { setSelectedAccount } from "../../../Store/Slices/layoutSlice";
 import {
   getCheckingAccountIncomingPayments,
@@ -63,6 +64,9 @@ const Balance = () => {
     {
       Header: "Datum",
       accessor: "date",
+      Cell: (props) => {
+        return props.value ? format(new Date(props.value), "yyyy-MM-dd") : null;
+      },
     },
     {
       Header: "Platitelj",
@@ -72,7 +76,7 @@ const Balance = () => {
       Header: "Iznos",
       accessor: "amount",
       Cell: (props) => {
-        return formatNumber(props.value);
+        return formatNumber(Number(props.value));
       },
     },
   ];

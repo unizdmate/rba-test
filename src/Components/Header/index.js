@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs } from "react-bootstrap";
 import "./headerStyles.css";
-import { setSelectedAccount } from "../../Store/Slices/layoutSlice";
 import Balance from "../../Pages/Accounts/Balance";
 import Transactions from "../../Pages/Accounts/Transactions";
 
