@@ -11,9 +11,12 @@ import Card from "../../../Components/Card";
 import Table from "../../../Components/Table.js";
 import FAB from "../../../Components/FAB";
 import PaymentModal from "../../../Components/PaymentModal";
+import DropDownSelect from "../../../Components/DropDownSelect";
 
 const Balance = () => {
   const [showModal, setShowModal] = useState(false);
+  const [selectedDropDownOption, setSelectedDropDownOption] =
+    useState("allAccounts");
 
   const selectedAccount = useSelector((state) => state.layout.selectedAccount);
 
@@ -116,38 +119,43 @@ const Balance = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ display: "flex" }}>
-        <Card
-          accountType="Moj tekući račun"
-          accountNumber="HR2398383000987623"
-          accountBalance={accountBalance}
-          remainingBalance={remainingBalance}
-          onClick={() => handleSelectedAccount("checkingAccount")}
-          active={
-            useSelector((state) => state.layout.selectedAccount) ===
-            "checkingAccount"
-          }
-        />
-        <Card
-          accountType="Kunski žiro račun"
-          accountNumber="HR7818383000982229"
-          accountBalance={4237.54}
-          remainingBalance={3972.85}
-          onClick={() => handleSelectedAccount("giroAccount")}
-          active={
-            useSelector((state) => state.layout.selectedAccount) ===
-            "giroAccount"
-          }
-        />
-      </div>
-      {selectedAccount === "checkingAccount" && (
-        <div style={{ display: "flex" }}>
-          <Table data={incomingPayments} columns={incomingPaymentsColumns} />
-          <Table data={outgoingPayments} columns={outgoingPaymentsColumns} />
-        </div>
+      <DropDownSelect onChange={(e) => setSelectedDropDownOption(e)} />
+      {selectedDropDownOption === "allAccounts" && (
+        <>
+          <div style={{ display: "flex" }}>
+            <Card
+              accountType="Moj tekući račun"
+              accountNumber="HR2398383000987623"
+              accountBalance={accountBalance}
+              remainingBalance={remainingBalance}
+              onClick={() => handleSelectedAccount("checkingAccount")}
+              active={selectedAccount === "checkingAccount"}
+            />
+            <Card
+              accountType="Kunski žiro račun"
+              accountNumber="HR7818383000982229"
+              accountBalance={4237.54}
+              remainingBalance={3972.85}
+              onClick={() => handleSelectedAccount("giroAccount")}
+              active={selectedAccount === "giroAccount"}
+            />
+          </div>
+          {selectedAccount === "checkingAccount" && (
+            <div style={{ display: "flex" }}>
+              <Table
+                data={incomingPayments}
+                columns={incomingPaymentsColumns}
+              />
+              <Table
+                data={outgoingPayments}
+                columns={outgoingPaymentsColumns}
+              />
+            </div>
+          )}
+          <FAB onClick={() => openPaymentModal()} />
+          <PaymentModal show={showModal} onHide={() => closePaymentModal()} />
+        </>
       )}
-      <FAB onClick={() => openPaymentModal()} />
-      <PaymentModal show={showModal} onHide={() => closePaymentModal()} />
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.dropdown-main {
+  margin: 0 16px 16px 16px;
+}
+
+.dropdown-main select {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 8px;
+}
