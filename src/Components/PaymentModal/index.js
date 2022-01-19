@@ -6,7 +6,7 @@ import {
   handleOutgoingPayment,
 } from "../../Store/Slices/checkingAccountSlice";
 import * as Yup from "yup";
-import { Modal, Tab, Tabs, Button, Container, Row, Col } from "react-bootstrap";
+import { Modal, Tab, Tabs, Button, Container, Row } from "react-bootstrap";
 import "./paymentModalStyles.css";
 import Form from "../Form";
 import InputField from "../InputField";
@@ -35,7 +35,7 @@ const PaymentModal = ({ show, onHide }) => {
         payer: Yup.string()
           .required("Ime platitelja je obavezno polje")
           .matches(
-            /^[a-zA-Z\.\'\-]{2,50}(?: [a-zA-Z\.\'\-]{2,50})+$/,
+            /^[a-zA-ZČčĆćŠšĐđŽž\.\'\-]{1,}(?: [a-zA-ZČčĆćŠšĐđŽž\.\'\-]{1,})+$/,
             "Obvezni podaci su ime i prezime, a dozvoljena samo slova"
           ),
         amount: Yup.number()
@@ -97,7 +97,6 @@ const PaymentModal = ({ show, onHide }) => {
               </Button>
               <Button type="submit">Prihvati</Button>
             </Modal.Footer>
-            <span>{JSON.stringify(values)}</span>
           </Form>
         )}
       </Formik>
@@ -116,7 +115,7 @@ const PaymentModal = ({ show, onHide }) => {
         payee: Yup.string()
           .required("Ime platitelja je obavezno polje")
           .matches(
-            /^[a-zA-Z\.\'\-]{2,50}(?: [a-zA-Z\.\'\-]{2,50})+$/,
+            /^[a-zA-ZČčĆćŠšĐđŽž\.\'\-]{1,}(?: [a-zA-ZČčĆćŠšĐđŽž\.\'\-]{1,})+$/,
             "Obvezni podaci su ime i prezime, a dozvoljena samo slova"
           ),
         amount: Yup.number()
@@ -178,7 +177,6 @@ const PaymentModal = ({ show, onHide }) => {
               </Button>
               <Button type="submit">Prihvati</Button>
             </Modal.Footer>
-            <span>{JSON.stringify(values)}</span>
           </Form>
         )}
       </Formik>

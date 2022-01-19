@@ -65,7 +65,9 @@ const Balance = () => {
       Header: "Datum",
       accessor: "date",
       Cell: (props) => {
-        return props.value ? format(new Date(props.value), "yyyy-MM-dd") : null;
+        return props.value
+          ? format(new Date(props.value), "dd.MM.yyyy.")
+          : null;
       },
     },
     {
@@ -86,7 +88,9 @@ const Balance = () => {
       Header: "Datum",
       accessor: "date",
       Cell: (props) => {
-        return props.value ? format(new Date(props.value), "yyyy-MM-dd") : null;
+        return props.value
+          ? format(new Date(props.value), "dd.MM.yyyy.")
+          : null;
       },
     },
     {
