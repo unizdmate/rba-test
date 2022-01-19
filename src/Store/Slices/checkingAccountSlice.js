@@ -35,7 +35,7 @@ export const checkingAccountSlice = createSlice({
     handleIncomingPayment: (state, action) => {
       return {
         ...state,
-        incomingPayments: [...state.incomingPayments, action.payload],
+        incomingPayments: [action.payload, ...state.incomingPayments],
         accountBalance: state.accountBalance + Number(action.payload.amount),
         remainingBalance:
           state.remainingBalance + Number(action.payload.amount),
@@ -44,7 +44,7 @@ export const checkingAccountSlice = createSlice({
     handleOutgoingPayment: (state, action) => {
       return {
         ...state,
-        outgoingPayments: [...state.outgoingPayments, action.payload],
+        outgoingPayments: [action.payload, ...state.outgoingPayments],
         accountBalance: state.accountBalance - Number(action.payload.amount),
         remainingBalance:
           state.remainingBalance - Number(action.payload.amount),

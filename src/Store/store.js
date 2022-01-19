@@ -17,7 +17,7 @@ const persistReducerConfiguration = {
   key: "root",
   version: 1,
   storage: localStorage,
-  whitelist: [],
+  whitelist: ["checkingAccount"],
 };
 
 const persistentReducer = persistReducer(
