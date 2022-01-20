@@ -35,12 +35,12 @@ const PaymentModal = ({ show, onHide }) => {
         payer: Yup.string()
           .required("Ime platitelja je obavezno polje")
           .matches(
-            /^[a-zA-ZČčĆćŠšĐđŽž\.\'\-]{1,}(?: [a-zA-ZČčĆćŠšĐđŽž\.\'\-]{1,})+$/,
+            /^[a-zA-ZČčĆćŠšĐđŽž]{1,}(?: [a-zA-ZČčĆćŠšĐđŽž]{1,})+$/,
             "Obvezni podaci su ime i prezime, a dozvoljena samo slova"
           ),
         amount: Yup.number()
           .required("Iznos je obavezno polje")
-          .positive("Iznos mora biti pozitivan broj"),
+          .positive("Iznos mora biti veći od nule"),
         date: Yup.date().required("Datum je obavezno polje"),
       });
     };
@@ -115,12 +115,12 @@ const PaymentModal = ({ show, onHide }) => {
         payee: Yup.string()
           .required("Ime platitelja je obavezno polje")
           .matches(
-            /^[a-zA-ZČčĆćŠšĐđŽž\.\'\-]{1,}(?: [a-zA-ZČčĆćŠšĐđŽž\.\'\-]{1,})+$/,
+            /^[a-zA-ZČčĆćŠšĐđŽž]{1,}(?: [a-zA-ZČčĆćŠšĐđŽž]{1,})+$/,
             "Obvezni podaci su ime i prezime, a dozvoljena samo slova"
           ),
         amount: Yup.number()
           .required("Iznos je obavezno polje")
-          .positive("Iznos mora biti pozitivan broj"),
+          .positive("Iznos mora biti veći od nule"),
         date: Yup.date().required("Datum je obavezno polje"),
       });
     };

@@ -9,4 +9,11 @@
   border-radius: 5px;
   padding: 8px;
   outline: none;
+  font-size: 14px;
+}
+
+.dropdown-label {
+  padding: 0 0 8px 0;
+  margin: 0;
+  color: #5e5e5e;
 }

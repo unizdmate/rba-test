@@ -61,7 +61,7 @@ const Balance = () => {
   useEffect(() => {
     dispatchGetIncomingPayments();
     dispatchGetOutgoingPayments();
-  }, []);
+  }, [accountBalance, remainingBalance]);
 
   const incomingPaymentsColumns = [
     {
@@ -112,7 +112,7 @@ const Balance = () => {
           Header: "Iznos",
           accessor: "amount",
           Cell: (props) => {
-            return formatNumber(Number(props.value));
+            return `- ${formatNumber(Number(props.value))}`;
           },
         },
       ],
@@ -129,7 +129,10 @@ const Balance = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <DropDownSelect onChange={(e) => setSelectedDropDownOption(e)} />
+      <DropDownSelect
+        onChange={(e) => setSelectedDropDownOption(e)}
+        label="Vrsta računa"
+      />
       {selectedDropDownOption === "allAccounts" && (
         <>
           <div style={{ display: "flex" }}>
