@@ -18,7 +18,8 @@ export const DateTimeInputField = ({
       <Bootstrap.FormGroup style={{ display: "flex", flexDirection: "column" }}>
         {label && (
           <Bootstrap.FormLabel>
-            {label} {mandatory && <span className="required">*</span>}
+            {label}
+            {mandatory && <span className="required">*</span>}
           </Bootstrap.FormLabel>
         )}
         <DatePicker

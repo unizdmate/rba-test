@@ -59,7 +59,7 @@ const PaymentModal = ({ show, onHide }) => {
           handleSubmit(values);
         }}
       >
-        {({ values }) => (
+        {() => (
           <Form>
             <Modal.Body>
               <Container fluid>
@@ -139,7 +139,7 @@ const PaymentModal = ({ show, onHide }) => {
           handleSubmit(values);
         }}
       >
-        {({ values }) => (
+        {() => (
           <Form>
             <Modal.Body>
               <Container fluid>

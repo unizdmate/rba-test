@@ -16,7 +16,8 @@ export const InputField = ({
       <Bootstrap.FormGroup>
         {label && (
           <Bootstrap.FormLabel>
-            {label} {mandatory && <span className="required">*</span>}
+            {label}
+            {mandatory && <span className="required">*</span>}
           </Bootstrap.FormLabel>
         )}
         <Bootstrap.FormControl

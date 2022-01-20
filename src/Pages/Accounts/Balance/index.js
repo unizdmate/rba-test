@@ -65,47 +65,57 @@ const Balance = () => {
 
   const incomingPaymentsColumns = [
     {
-      Header: "Datum",
-      accessor: "date",
-      Cell: (props) => {
-        return props.value
-          ? format(new Date(props.value), "dd.MM.yyyy.")
-          : null;
-      },
-    },
-    {
-      Header: "Platitelj",
-      accessor: "payer",
-    },
-    {
-      Header: "Iznos",
-      accessor: "amount",
-      Cell: (props) => {
-        return formatNumber(Number(props.value));
-      },
+      Header: "Uplate po tekućem računu",
+      columns: [
+        {
+          Header: "Datum",
+          accessor: "date",
+          Cell: (props) => {
+            return props.value
+              ? format(new Date(props.value), "dd.MM.yyyy.")
+              : null;
+          },
+        },
+        {
+          Header: "Platitelj",
+          accessor: "payer",
+        },
+        {
+          Header: "Iznos",
+          accessor: "amount",
+          Cell: (props) => {
+            return formatNumber(Number(props.value));
+          },
+        },
+      ],
     },
   ];
 
   const outgoingPaymentsColumns = [
     {
-      Header: "Datum",
-      accessor: "date",
-      Cell: (props) => {
-        return props.value
-          ? format(new Date(props.value), "dd.MM.yyyy.")
-          : null;
-      },
-    },
-    {
-      Header: "Primatelj",
-      accessor: "payee",
-    },
-    {
-      Header: "Iznos",
-      accessor: "amount",
-      Cell: (props) => {
-        return formatNumber(Number(props.value));
-      },
+      Header: "Isplate po tekućem računu",
+      columns: [
+        {
+          Header: "Datum",
+          accessor: "date",
+          Cell: (props) => {
+            return props.value
+              ? format(new Date(props.value), "dd.MM.yyyy.")
+              : null;
+          },
+        },
+        {
+          Header: "Primatelj",
+          accessor: "payee",
+        },
+        {
+          Header: "Iznos",
+          accessor: "amount",
+          Cell: (props) => {
+            return formatNumber(Number(props.value));
+          },
+        },
+      ],
     },
   ];
 

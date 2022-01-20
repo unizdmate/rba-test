@@ -35,6 +35,7 @@
   color: #000000;
   display: block;
   pointer-events: none;
+  font-weight: bold;
 }
 
 .sidebar-item:hover {

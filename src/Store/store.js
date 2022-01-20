@@ -14,7 +14,7 @@ import localStorage from "redux-persist/es/storage";
 import { rootReducer } from "./reducer";
 
 const persistReducerConfiguration = {
-  key: "root",
+  key: "rba-test",
   version: 1,
   storage: localStorage,
   whitelist: ["checkingAccount"],

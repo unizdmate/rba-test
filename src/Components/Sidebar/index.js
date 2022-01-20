@@ -9,7 +9,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div>
-        <p className="sidebar-logo">RBA</p>
+        <p className="sidebar-logo">Raiffeisen bank</p>
       </div>
       <div onClick={() => dispatch(setSelectedNavItem("accounts"))}>
         <p

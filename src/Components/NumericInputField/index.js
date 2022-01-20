@@ -16,7 +16,8 @@ export const NumericInputField = ({
       <Bootstrap.FormGroup>
         {label && (
           <Bootstrap.FormLabel>
-            {label} {mandatory && <span className="required">*</span>}
+            {label}
+            {mandatory && <span className="required">*</span>}
           </Bootstrap.FormLabel>
         )}
 
