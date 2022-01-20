@@ -1,6 +1,6 @@
 import React from "react";
 import { formatNumber } from "../../Utils";
-import "./cardStyles.css";
+import "./CardStyles.css";
 
 const Card = ({
   accountType,
